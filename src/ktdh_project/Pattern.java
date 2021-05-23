@@ -5,9 +5,13 @@
  */
 package ktdh_project;
 
+import ktdh_project.AllPanel.PanelDraw3D;
+import ktdh_project.AllPanel.PanelDraw2D;
+import ktdh_project.AllPanel.PanelAction2D;
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;
+
 
 /**
  *
@@ -20,7 +24,7 @@ public class Pattern extends javax.swing.JFrame {
      */
     public Pattern() {
         initComponents();
-        resetAll();
+//        resetAll();
         this.setSize(1500, 1000);
         
     }
@@ -35,15 +39,7 @@ public class Pattern extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanelInput = new javax.swing.JPanel();
-        jTextFieldX = new javax.swing.JTextField();
-        jLabelX = new javax.swing.JLabel();
-        jLabelY = new javax.swing.JLabel();
-        jLabelZ = new javax.swing.JLabel();
-        jTextFieldY = new javax.swing.JTextField();
-        jTextFieldZ = new javax.swing.JTextField();
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(120, 0), new java.awt.Dimension(120, 0), new java.awt.Dimension(120, 32767));
-        jButtonDraw = new javax.swing.JButton();
-        jButtonClear = new javax.swing.JButton();
         jPanelFunction = new javax.swing.JPanel();
         jButtonDraw2D = new javax.swing.JButton();
         jButtonAction2D = new javax.swing.JButton();
@@ -58,56 +54,12 @@ public class Pattern extends javax.swing.JFrame {
 
         jPanelInput.setBackground(java.awt.SystemColor.controlDkShadow);
         jPanelInput.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextFieldX.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldXKeyTyped(evt);
-            }
-        });
-        jPanelInput.add(jTextFieldX, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 102, -1));
-
-        jLabelX.setText("X");
-        jPanelInput.add(jLabelX, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
-
-        jLabelY.setText("Y");
-        jPanelInput.add(jLabelY, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
-
-        jLabelZ.setText("Z");
-        jPanelInput.add(jLabelZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
-
-        jTextFieldY.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextFieldYKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldYKeyTyped(evt);
-            }
-        });
-        jPanelInput.add(jTextFieldY, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 102, -1));
-
-        jTextFieldZ.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldZActionPerformed(evt);
-            }
-        });
-        jTextFieldZ.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldZKeyTyped(evt);
-            }
-        });
-        jPanelInput.add(jTextFieldZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 103, -1));
         jPanelInput.add(filler3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 375, -1, -1));
-
-        jButtonDraw.setText("Draw");
-        jPanelInput.add(jButtonDraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
-
-        jButtonClear.setText("Clear");
-        jPanelInput.add(jButtonClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
         jPanelFunction.setBackground(java.awt.SystemColor.controlShadow);
         jPanelFunction.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonDraw2D.setText("Draw 2D");
+        jButtonDraw2D.setText("Vẽ 2D");
         jButtonDraw2D.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDraw2DActionPerformed(evt);
@@ -115,7 +67,7 @@ public class Pattern extends javax.swing.JFrame {
         });
         jPanelFunction.add(jButtonDraw2D, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 36, 100, 50));
 
-        jButtonAction2D.setText("Action 2D");
+        jButtonAction2D.setText("Cảnh 2D");
         jButtonAction2D.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonAction2D.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +76,7 @@ public class Pattern extends javax.swing.JFrame {
         });
         jPanelFunction.add(jButtonAction2D, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 36, 100, 50));
 
-        jButtonDraw3D.setText("Draw 3D");
+        jButtonDraw3D.setText("Vẽ 3D");
         jButtonDraw3D.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDraw3DActionPerformed(evt);
@@ -134,7 +86,7 @@ public class Pattern extends javax.swing.JFrame {
         jPanelFunction.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 0, -1, -1));
         jPanelFunction.add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 62, 11, -1));
 
-        jButtonExit.setText("Exit");
+        jButtonExit.setText("Thoát");
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExitActionPerformed(evt);
@@ -153,16 +105,16 @@ public class Pattern extends javax.swing.JFrame {
         jPanelShowLayout.setHorizontalGroup(
             jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelShowLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
+                .addGap(113, 113, 113)
                 .addComponent(jLabelWelcome)
                 .addContainerGap(158, Short.MAX_VALUE))
         );
         jPanelShowLayout.setVerticalGroup(
             jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelShowLayout.createSequentialGroup()
-                .addGap(193, 193, 193)
+                .addGap(253, 253, 253)
                 .addComponent(jLabelWelcome)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,21 +141,24 @@ public class Pattern extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonDraw2DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDraw2DActionPerformed
-        resetDraw2D();
-        resetTextField();
         setDraw2D();
+//        resetDraw2D();
+//        resetTextField();
+        
     }//GEN-LAST:event_jButtonDraw2DActionPerformed
 
     private void jButtonDraw3DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDraw3DActionPerformed
-        resetDraw3D();
-        resetTextField();
         setDraw3D();
+//        resetDraw3D();
+//        resetTextField();
+        
     }//GEN-LAST:event_jButtonDraw3DActionPerformed
 
     private void jButtonAction2DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAction2DActionPerformed
-        resetAction2D();
-        resetTextField();
         setAction2D();
+//        resetAction2D();
+//        resetTextField();
+        
     }//GEN-LAST:event_jButtonAction2DActionPerformed
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
@@ -211,112 +166,146 @@ public class Pattern extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButtonExitActionPerformed
 
-    private void jTextFieldZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldZActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldZActionPerformed
-
-    private void jTextFieldXKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldXKeyTyped
-        // TODO add your handling code here:
-        checkNumberType(evt);
-        
-    }//GEN-LAST:event_jTextFieldXKeyTyped
-
-    private void jTextFieldYKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldYKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldYKeyPressed
-
-    private void jTextFieldYKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldYKeyTyped
-        // TODO add your handling code here:
-        checkNumberType(evt);
-    }//GEN-LAST:event_jTextFieldYKeyTyped
-
-    private void jTextFieldZKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldZKeyTyped
-        // TODO add your handling code here:
-        checkNumberType(evt);
-    }//GEN-LAST:event_jTextFieldZKeyTyped
-
     /**
      * @param args the command line arguments
      */
     public void setDraw2D(){
+        jPanelInput.removeAll();
         jPanelShow.removeAll();
-        jPanelShow.setSize(800,800);
+        PanelDraw2D panel = new PanelDraw2D();
+        JPanel inputPanel = (JPanel)(panel.getComponent(0));
+        JPanel showPanel = (JPanel)(panel.getComponent(1));
+//        System.out.print(panel.getComponent(0));
+        jPanelInput.setLayout(new BorderLayout());
+        jPanelInput.add(inputPanel);
         jPanelShow.setLayout(new BorderLayout());
-        jPanelShow.add(new MyCanvas());
+        jPanelShow.add(showPanel);
         jPanelShow.validate();
+        jPanelInput.validate();
     }
     
     public void setDraw3D(){
+        jPanelInput.removeAll();
         jPanelShow.removeAll();
-        JPanel newPanel = new JPanel();
-        jPanelShow.add(newPanel);
-        // ve truc 3D
+        PanelDraw3D panel = new PanelDraw3D();
+        JPanel inputPanel = (JPanel)(panel.getComponent(0));
+        JPanel showPanel = (JPanel)(panel.getComponent(1));
+        jPanelInput.setLayout(new BorderLayout());
+        jPanelInput.add(inputPanel);
+        jPanelShow.setLayout(new BorderLayout());
+        jPanelShow.add(showPanel);
         jPanelShow.validate();
+        jPanelInput.validate();
+    }
+    
+        public void setAction2D(){
+        jPanelInput.removeAll();
+        jPanelShow.removeAll();
+        PanelAction2D panel = new PanelAction2D();
+        jPanelInput.setLayout(new BorderLayout());
+        jPanelInput.add(panel.getComponent(0));
+        jPanelShow.setLayout(new BorderLayout());
+        jPanelShow.add(panel.getComponent(0));
+        jPanelInput.validate();
     }
     
     public void checkNumberType(KeyEvent evt){
         char c = evt.getKeyChar();
-      if (!((c >= '0') && (c <= '9') ||
-         (c == KeyEvent.VK_BACK_SPACE) ||
-         (c == KeyEvent.VK_DELETE))) {
-        getToolkit().beep();
-        evt.consume();
-      }
+        if (!((c >= '0') && (c <= '9') ||
+            (c == KeyEvent.VK_BACK_SPACE) ||
+            (c == KeyEvent.VK_DELETE) ||
+            (c == KeyEvent.VK_MINUS))) {
+            getToolkit().beep();
+            evt.consume();
+        }
     }
     
-    public void setAction2D(){
-        jPanelShow.removeAll();
-        JPanel newPanel = new JPanel();
-        jPanelShow.add(newPanel);
-        jPanelShow.validate();
-    }
     
     public void showInput(){
         
     }
     
-    public void reset(){
-        jLabelX.setVisible(false);
-        jLabelY.setVisible(false);
-        jLabelZ.setVisible(false);
-        jTextFieldX.setVisible(false);
-        jTextFieldY.setVisible(false);
-        jTextFieldZ.setVisible(false);
-    }
+//    public void reset(){
+//        jLabelZ2.setVisible(false);
+//        jLabelX2.setVisible(false);
+//        jLabelY2.setVisible(false);
+//        jTextFieldZ2.setVisible(false);
+//        jTextFieldX2.setVisible(false);
+//        jTextFieldY2.setVisible(false);
+//        jLabelZ1.setVisible(false);
+//        jLabelX1.setVisible(false);
+//        jLabelY1.setVisible(false);
+//        jTextFieldZ1.setVisible(false);
+//        jTextFieldX1.setVisible(false);
+//        jTextFieldY1.setVisible(false);
+//        jButtonDraw.setVisible(false);
+//        jButtonClear.setVisible(false);
+//    }
     
-    public void resetTextField(){
-        jTextFieldX.setText("");
-        jTextFieldY.setText("");
-        jTextFieldZ.setText("");
-    }
+//    public void resetTextField(){
+//        jTextFieldZ2.setText("");
+//        jTextFieldX2.setText("");
+//        jTextFieldY2.setText("");
+//        jTextFieldZ1.setText("");
+//        jTextFieldX1.setText("");
+//        jTextFieldY1.setText("");
+//    }
     
-    public void resetAll(){
-        reset();
-        jLabelWelcome.setVisible(true);
-    }
+//    public void resetAll(){
+//        reset();
+//        jLabelWelcome.setVisible(true);
+//    }
+//    
+//    public void resetAction2D(){
+//        reset();
+//        jLabelWelcome.setVisible(false);
+//    }
+//    
+//    public void resetDraw2D(){
+//        jLabelZ2.setVisible(false);
+//        jLabelX2.setVisible(true);
+//        jLabelY2.setVisible(true);
+//        jLabelZ1.setVisible(false);
+//        jLabelX1.setVisible(true);
+//        jLabelY1.setVisible(true);
+//        jTextFieldZ2.setVisible(false);
+//        jTextFieldX2.setVisible(true);
+//        jTextFieldY2.setVisible(true);
+//        jTextFieldZ1.setVisible(false);
+//        jTextFieldX1.setVisible(true);
+//        jTextFieldY1.setVisible(true);
+//        jButtonDraw.setVisible(true);
+//        jButtonClear.setVisible(true);
+//    }
+//    
+//    public void resetDraw3D(){
+//        jLabelZ2.setVisible(true);
+//        jLabelX2.setVisible(true);
+//        jLabelY2.setVisible(true);
+//        jLabelZ1.setVisible(true);
+//        jLabelX1.setVisible(true);
+//        jLabelY1.setVisible(true);
+//        jTextFieldZ2.setVisible(true);
+//        jTextFieldX2.setVisible(true);
+//        jTextFieldY2.setVisible(true);
+//        jTextFieldZ1.setVisible(true);
+//        jTextFieldX1.setVisible(true);
+//        jTextFieldY1.setVisible(true);
+//        jButtonDraw.setVisible(true);
+//        jButtonClear.setVisible(true);
+//    }
     
-    public void resetAction2D(){
-        reset();
-        jLabelWelcome.setVisible(false);
-    }
     
-    public void resetDraw2D(){
-        jLabelX.setVisible(true);
-        jLabelY.setVisible(true);
-        jLabelZ.setVisible(false);
-        jTextFieldX.setVisible(true);
-        jTextFieldY.setVisible(true);
-        jTextFieldZ.setVisible(false);
-    }
+//    public void draw2DLine(LineMode mode){
+//        int x1 = Integer.parseInt(jTextFieldX1.getText());
+//        int y1 = Integer.parseInt(jTextFieldY1.getText());
+//        int x2 = Integer.parseInt(jTextFieldX2.getText());
+//        int y2 = Integer.parseInt(jTextFieldY2.getText());
+//        Point2D startPoint = new Point2D(x1, y1);
+//        Point2D endPoint = new Point2D(x2, y2);
+//        MyLibrary.drawLine2D(startPoint, endPoint, mode, jPanelShow);
+//    }
     
-    public void resetDraw3D(){
-        jLabelX.setVisible(true);
-        jLabelY.setVisible(true);
-        jLabelZ.setVisible(true);
-        jTextFieldX.setVisible(true);
-        jTextFieldY.setVisible(true);
-        jTextFieldZ.setVisible(true);
-    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -355,20 +344,12 @@ public class Pattern extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
     private javax.swing.JButton jButtonAction2D;
-    private javax.swing.JButton jButtonClear;
-    private javax.swing.JButton jButtonDraw;
     private javax.swing.JButton jButtonDraw2D;
     private javax.swing.JButton jButtonDraw3D;
     private javax.swing.JButton jButtonExit;
     private javax.swing.JLabel jLabelWelcome;
-    private javax.swing.JLabel jLabelX;
-    private javax.swing.JLabel jLabelY;
-    private javax.swing.JLabel jLabelZ;
     private javax.swing.JPanel jPanelFunction;
     private javax.swing.JPanel jPanelInput;
     private javax.swing.JPanel jPanelShow;
-    private javax.swing.JTextField jTextFieldX;
-    private javax.swing.JTextField jTextFieldY;
-    private javax.swing.JTextField jTextFieldZ;
     // End of variables declaration//GEN-END:variables
 }
