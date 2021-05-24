@@ -49,6 +49,13 @@ public class Pattern extends javax.swing.JFrame {
         jButtonExit = new javax.swing.JButton();
         jPanelShow = new javax.swing.JPanel();
         jLabelWelcome = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +66,7 @@ public class Pattern extends javax.swing.JFrame {
         jPanelFunction.setBackground(java.awt.SystemColor.controlShadow);
         jPanelFunction.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButtonDraw2D.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButtonDraw2D.setText("Vẽ 2D");
         jButtonDraw2D.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +75,7 @@ public class Pattern extends javax.swing.JFrame {
         });
         jPanelFunction.add(jButtonDraw2D, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 36, 100, 50));
 
+        jButtonAction2D.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButtonAction2D.setText("Cảnh 2D");
         jButtonAction2D.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonAction2D.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +85,7 @@ public class Pattern extends javax.swing.JFrame {
         });
         jPanelFunction.add(jButtonAction2D, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 36, 100, 50));
 
+        jButtonDraw3D.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButtonDraw3D.setText("Vẽ 3D");
         jButtonDraw3D.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +96,7 @@ public class Pattern extends javax.swing.JFrame {
         jPanelFunction.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 0, -1, -1));
         jPanelFunction.add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 62, 11, -1));
 
+        jButtonExit.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButtonExit.setText("Thoát");
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,27 +105,76 @@ public class Pattern extends javax.swing.JFrame {
         });
         jPanelFunction.add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 36, 100, 50));
 
-        jPanelShow.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelShow.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabelWelcome.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabelWelcome.setForeground(new java.awt.Color(0, 255, 0));
+        jLabelWelcome.setForeground(new java.awt.Color(0, 0, 255));
         jLabelWelcome.setText("PHẦN MỀM KỸ THUẬT ĐỒ HỌA NHÓM 7");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
+        jLabel1.setText("Thành viên nhóm 7:");
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setText("Trần Quốc Bảo - N18DCCN013");
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setText("Nguyễn Thanh Duy - N18DCCN031");
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel4.setText("Nguyễn Thanh Hiền - N18DCCN061");
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel5.setText("Đỗ Duy Khang - N18DCCN091");
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setText("Nguyễn Quốc Thắng - N18DCCN211");
 
         javax.swing.GroupLayout jPanelShowLayout = new javax.swing.GroupLayout(jPanelShow);
         jPanelShow.setLayout(jPanelShowLayout);
         jPanelShowLayout.setHorizontalGroup(
             jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelShowLayout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(jLabelWelcome)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addGroup(jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabelWelcome)
+                        .addGroup(jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelShowLayout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelShowLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel1)
+                                .addGap(171, 171, 171))))
+                    .addGroup(jPanelShowLayout.createSequentialGroup()
+                        .addGap(331, 331, 331)
+                        .addGroup(jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         jPanelShowLayout.setVerticalGroup(
             jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelShowLayout.createSequentialGroup()
-                .addGap(253, 253, 253)
+                .addGap(99, 99, 99)
                 .addComponent(jLabelWelcome)
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -134,7 +194,7 @@ public class Pattern extends javax.swing.JFrame {
                 .addComponent(jPanelFunction, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelShow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanelInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelInput, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
         );
 
         pack();
@@ -169,44 +229,46 @@ public class Pattern extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public void setDraw2D(){
+    
+    public void reloadScreen(){
         jPanelInput.removeAll();
         jPanelShow.removeAll();
+        jPanelShow.setVisible(false);
+        jPanelShow.setVisible(true);
+    }
+    
+    public void setDraw2D(){
+        reloadScreen();
         PanelDraw2D panel = new PanelDraw2D();
-        JPanel inputPanel = (JPanel)(panel.getComponent(0));
-        JPanel showPanel = (JPanel)(panel.getComponent(1));
-//        System.out.print(panel.getComponent(0));
         jPanelInput.setLayout(new BorderLayout());
-        jPanelInput.add(inputPanel);
+        jPanelInput.add(panel.getComponent(0));
         jPanelShow.setLayout(new BorderLayout());
-        jPanelShow.add(showPanel);
+        jPanelShow.add(panel.getComponent(0));
         jPanelShow.validate();
         jPanelInput.validate();
+        System.out.print(1);
     }
     
     public void setDraw3D(){
-        jPanelInput.removeAll();
-        jPanelShow.removeAll();
+        reloadScreen();
         PanelDraw3D panel = new PanelDraw3D();
-        JPanel inputPanel = (JPanel)(panel.getComponent(0));
-        JPanel showPanel = (JPanel)(panel.getComponent(1));
         jPanelInput.setLayout(new BorderLayout());
-        jPanelInput.add(inputPanel);
+        jPanelInput.add(panel.getComponent(0));
         jPanelShow.setLayout(new BorderLayout());
-        jPanelShow.add(showPanel);
-        jPanelShow.validate();
+        jPanelShow.add(panel.getComponent(0));
         jPanelInput.validate();
+        jPanelShow.validate();
     }
     
         public void setAction2D(){
-        jPanelInput.removeAll();
-        jPanelShow.removeAll();
+        reloadScreen();
         PanelAction2D panel = new PanelAction2D();
         jPanelInput.setLayout(new BorderLayout());
         jPanelInput.add(panel.getComponent(0));
         jPanelShow.setLayout(new BorderLayout());
         jPanelShow.add(panel.getComponent(0));
         jPanelInput.validate();
+        jPanelShow.validate();
     }
     
     public void checkNumberType(KeyEvent evt){
@@ -224,89 +286,7 @@ public class Pattern extends javax.swing.JFrame {
     public void showInput(){
         
     }
-    
-//    public void reset(){
-//        jLabelZ2.setVisible(false);
-//        jLabelX2.setVisible(false);
-//        jLabelY2.setVisible(false);
-//        jTextFieldZ2.setVisible(false);
-//        jTextFieldX2.setVisible(false);
-//        jTextFieldY2.setVisible(false);
-//        jLabelZ1.setVisible(false);
-//        jLabelX1.setVisible(false);
-//        jLabelY1.setVisible(false);
-//        jTextFieldZ1.setVisible(false);
-//        jTextFieldX1.setVisible(false);
-//        jTextFieldY1.setVisible(false);
-//        jButtonDraw.setVisible(false);
-//        jButtonClear.setVisible(false);
-//    }
-    
-//    public void resetTextField(){
-//        jTextFieldZ2.setText("");
-//        jTextFieldX2.setText("");
-//        jTextFieldY2.setText("");
-//        jTextFieldZ1.setText("");
-//        jTextFieldX1.setText("");
-//        jTextFieldY1.setText("");
-//    }
-    
-//    public void resetAll(){
-//        reset();
-//        jLabelWelcome.setVisible(true);
-//    }
-//    
-//    public void resetAction2D(){
-//        reset();
-//        jLabelWelcome.setVisible(false);
-//    }
-//    
-//    public void resetDraw2D(){
-//        jLabelZ2.setVisible(false);
-//        jLabelX2.setVisible(true);
-//        jLabelY2.setVisible(true);
-//        jLabelZ1.setVisible(false);
-//        jLabelX1.setVisible(true);
-//        jLabelY1.setVisible(true);
-//        jTextFieldZ2.setVisible(false);
-//        jTextFieldX2.setVisible(true);
-//        jTextFieldY2.setVisible(true);
-//        jTextFieldZ1.setVisible(false);
-//        jTextFieldX1.setVisible(true);
-//        jTextFieldY1.setVisible(true);
-//        jButtonDraw.setVisible(true);
-//        jButtonClear.setVisible(true);
-//    }
-//    
-//    public void resetDraw3D(){
-//        jLabelZ2.setVisible(true);
-//        jLabelX2.setVisible(true);
-//        jLabelY2.setVisible(true);
-//        jLabelZ1.setVisible(true);
-//        jLabelX1.setVisible(true);
-//        jLabelY1.setVisible(true);
-//        jTextFieldZ2.setVisible(true);
-//        jTextFieldX2.setVisible(true);
-//        jTextFieldY2.setVisible(true);
-//        jTextFieldZ1.setVisible(true);
-//        jTextFieldX1.setVisible(true);
-//        jTextFieldY1.setVisible(true);
-//        jButtonDraw.setVisible(true);
-//        jButtonClear.setVisible(true);
-//    }
-    
-    
-//    public void draw2DLine(LineMode mode){
-//        int x1 = Integer.parseInt(jTextFieldX1.getText());
-//        int y1 = Integer.parseInt(jTextFieldY1.getText());
-//        int x2 = Integer.parseInt(jTextFieldX2.getText());
-//        int y2 = Integer.parseInt(jTextFieldY2.getText());
-//        Point2D startPoint = new Point2D(x1, y1);
-//        Point2D endPoint = new Point2D(x2, y2);
-//        MyLibrary.drawLine2D(startPoint, endPoint, mode, jPanelShow);
-//    }
-    
-    
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -347,9 +327,16 @@ public class Pattern extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDraw2D;
     private javax.swing.JButton jButtonDraw3D;
     private javax.swing.JButton jButtonExit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelWelcome;
     private javax.swing.JPanel jPanelFunction;
     private javax.swing.JPanel jPanelInput;
     private javax.swing.JPanel jPanelShow;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

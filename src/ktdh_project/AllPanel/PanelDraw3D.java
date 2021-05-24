@@ -50,10 +50,10 @@ public class PanelDraw3D extends javax.swing.JPanel {
         jPanelInput.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelX2.setText("X2");
-        jPanelInput.add(jLabelX2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        jPanelInput.add(jLabelX2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
         jLabelY2.setText("Y2");
-        jPanelInput.add(jLabelY2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+        jPanelInput.add(jLabelY2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
         jTextFieldX2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -63,7 +63,7 @@ public class PanelDraw3D extends javax.swing.JPanel {
                 jTextFieldX2KeyTyped(evt);
             }
         });
-        jPanelInput.add(jTextFieldX2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 102, -1));
+        jPanelInput.add(jTextFieldX2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 102, -1));
 
         jTextFieldY2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +75,7 @@ public class PanelDraw3D extends javax.swing.JPanel {
                 jTextFieldY2KeyTyped(evt);
             }
         });
-        jPanelInput.add(jTextFieldY2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 103, -1));
+        jPanelInput.add(jTextFieldY2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 103, -1));
         jPanelInput.add(filler3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 375, -1, -1));
 
         jButtonDraw.setText("Vẽ");
@@ -84,33 +84,33 @@ public class PanelDraw3D extends javax.swing.JPanel {
                 jButtonDrawActionPerformed(evt);
             }
         });
-        jPanelInput.add(jButtonDraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 60, -1));
+        jPanelInput.add(jButtonDraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 60, -1));
 
         jButtonClear.setText("Xóa");
-        jPanelInput.add(jButtonClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 60, -1));
+        jPanelInput.add(jButtonClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 60, -1));
 
         jLabelY1.setText("Y1");
-        jPanelInput.add(jLabelY1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        jPanelInput.add(jLabelY1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         jTextFieldY1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldY1KeyTyped(evt);
             }
         });
-        jPanelInput.add(jTextFieldY1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 102, -1));
+        jPanelInput.add(jTextFieldY1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 102, -1));
 
         jTextFieldX1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldX1KeyTyped(evt);
             }
         });
-        jPanelInput.add(jTextFieldX1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 102, -1));
+        jPanelInput.add(jTextFieldX1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 102, -1));
 
         jLabelX1.setText("X1");
-        jPanelInput.add(jLabelX1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        jPanelInput.add(jLabelX1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
         jLabelZ1.setText("Z1");
-        jPanelInput.add(jLabelZ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jPanelInput.add(jLabelZ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         jTextFieldZ1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -120,10 +120,10 @@ public class PanelDraw3D extends javax.swing.JPanel {
                 jTextFieldZ1KeyTyped(evt);
             }
         });
-        jPanelInput.add(jTextFieldZ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 102, -1));
+        jPanelInput.add(jTextFieldZ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 102, -1));
 
         jLabelZ2.setText("Z2");
-        jPanelInput.add(jLabelZ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jPanelInput.add(jLabelZ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
 
         jTextFieldZ2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -133,9 +133,9 @@ public class PanelDraw3D extends javax.swing.JPanel {
                 jTextFieldZ2KeyTyped(evt);
             }
         });
-        jPanelInput.add(jTextFieldZ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 102, -1));
+        jPanelInput.add(jTextFieldZ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 102, -1));
 
-        jPanelShow.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelShow.setBackground(new java.awt.Color(204, 204, 204));
 
         jButton1.setText("3D");
 
