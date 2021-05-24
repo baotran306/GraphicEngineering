@@ -5,6 +5,20 @@
  */
 package ktdh_project.AllPanel;
 
+import java.awt.BorderLayout;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JPanel;
+import ktdh_project.MyCanvas;
+import ktdh_project.Objects2D.Cloud;
+import ktdh_project.Objects2D.Drawer;
+import ktdh_project.Objects2D.Explosive;
+import ktdh_project.Objects2D.Helicopter;
+import ktdh_project.Objects2D.Rocket;
+import ktdh_project.Objects2D.RocketStruck;
+import ktdh_project.Pattern;
+
 /**
  *
  * @author Tran Quoc Bao
@@ -29,32 +43,36 @@ public class PanelAction2D extends javax.swing.JPanel {
 
         jPanelInput = new javax.swing.JPanel();
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(120, 0), new java.awt.Dimension(120, 0), new java.awt.Dimension(120, 32767));
+        jButtonDraw = new javax.swing.JButton();
+        JButtonReload = new javax.swing.JButton();
         jPanelShow = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
 
         jPanelInput.setBackground(java.awt.SystemColor.controlDkShadow);
         jPanelInput.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanelInput.add(filler3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 375, -1, -1));
 
-        jPanelShow.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonDraw.setText("Vẽ");
+        jButtonDraw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDrawActionPerformed(evt);
+            }
+        });
+        jPanelInput.add(jButtonDraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 70, -1));
 
-        jButton1.setText("Action");
+        JButtonReload.setText("Vẽ lại");
+        jPanelInput.add(JButtonReload, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 70, -1));
+
+        jPanelShow.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanelShowLayout = new javax.swing.GroupLayout(jPanelShow);
         jPanelShow.setLayout(jPanelShowLayout);
         jPanelShowLayout.setHorizontalGroup(
             jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelShowLayout.createSequentialGroup()
-                .addGap(371, 371, 371)
-                .addComponent(jButton1)
-                .addContainerGap(410, Short.MAX_VALUE))
+            .addGap(0, 848, Short.MAX_VALUE)
         );
         jPanelShowLayout.setVerticalGroup(
             jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelShowLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 334, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -76,10 +94,121 @@ public class PanelAction2D extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonDrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDrawActionPerformed
+        // TODO add your handling code here:
+        jPanelShow.removeAll();
+        jPanelShow.setSize(800,800);
+        jPanelShow.setLayout(new BorderLayout());
+        MyCanvas panel = new MyCanvas();
+        jPanelShow.add(panel);
+        jPanelShow.validate();
+        Action(panel);
+    }//GEN-LAST:event_jButtonDrawActionPerformed
+    public void Action(MyCanvas panel){
+        Helicopter helicopter = new Helicopter(-5, 20, 10, 5, false);
+        Rocket rocket = new Rocket(-3, 80, 10, 20, 0.70710678118);
+        RocketStruck struck = new RocketStruck(0, 100, 20, 10);
+        Cloud cloud = new Cloud(80, 10, 10, 5);
+        Cloud cloud1 = new Cloud(50, 10, 10, 5);
+        Explosive explosive = new Explosive(70,20,5);
+        Drawer.struck(struck, panel);
+        Drawer.rocket(rocket, panel);
+        int toaDoGiamSize = 55;
+        for (int i = 0; i < 100; i++) {
+            Drawer.clear(panel);
+            if (i <= 15) {
+                struck.move(1, 0);
+                rocket.move(1, 0);
+            } 
+            else {
+                if (i >= 30) {
+                    helicopter.move(1, 0);
+                }
+                if (i < 30) {
+                    rocket.changeAngle(-0.0174533);
+                } 
+                else {
+                    if(i>=55)
+                    rocket.move(1, -1);
+                }
+                if (i >= toaDoGiamSize) {
+                    toaDoGiamSize = toaDoGiamSize + 10;
+                    rocket.changeSize(-1, -1);
+                }
+                if(i%10==0){
+                    cloud.move(-1, 0);  
+                    cloud1.move(-1, 0);
+                }
+
+            }
+            Drawer.struck(struck, panel);
+            Drawer.rocket(rocket, panel);
+            Drawer.cloud(panel, cloud);
+            Drawer.cloud(panel, cloud1);
+            Drawer.helicopter(helicopter, panel);
+            Drawer.sun(150, 10, 10, panel);
+            try {
+
+                TimeUnit.MILLISECONDS.sleep(100);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Pattern.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        for(int i=0;i<=5;i++){                                    
+            explosive.changeSize(i);                   
+
+            Drawer.cloud(panel, cloud);
+            Drawer.cloud(panel, cloud1);
+            Drawer.helicopter(helicopter, panel);
+            Drawer.Explosive(panel, explosive);
+            Drawer.struck(struck, panel);
+            Drawer.sun(150, 10, 10, panel);
+
+            try {
+
+                TimeUnit.MILLISECONDS.sleep(200);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Pattern.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        for (int i = 0; i < 60; i++) {
+            Drawer.clear(panel);
+            helicopter.move(1, 1);
+            helicopter.changeDirection();
+            if(i%10==0){
+                cloud.move(-1, 0);  
+                cloud1.move(-1, 0);
+            }
+            Drawer.cloud(panel, cloud);
+            Drawer.cloud(panel, cloud1);
+            Drawer.helicopter(helicopter, panel);
+            Drawer.struck(struck, panel);
+            Drawer.sun(150, 10, 10, panel);
+            try {
+
+                TimeUnit.MILLISECONDS.sleep(100);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Pattern.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+                
+                Drawer.clear(panel);
+                Drawer.struck(struck,panel);
+                Drawer.sun(150, 10, 10, panel);
+                Drawer.cloud(panel, cloud);
+                Drawer.cloud(panel ,cloud1);
+                try {
+                        TimeUnit.MILLISECONDS.sleep(5000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Pattern.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JButtonReload;
     private javax.swing.Box.Filler filler3;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonDraw;
     private javax.swing.JPanel jPanelInput;
     private javax.swing.JPanel jPanelShow;
     // End of variables declaration//GEN-END:variables
