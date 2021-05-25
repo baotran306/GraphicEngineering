@@ -5,6 +5,12 @@
  */
 package ktdh_project.AllPanel;
 
+import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+import ktdh_project.Class3D.Draw3D;
+import ktdh_project.Class3D.MyCanvas3D;
+
 /**
  *
  * @author Tran Quoc Bao
@@ -16,6 +22,26 @@ public class PanelDraw3D extends javax.swing.JPanel {
      */
     public PanelDraw3D() {
         initComponents();
+        setStart();
+        setDraw3D();
+    }
+    private int mode = 0; // if mode == 0: draw rectangle box, else cylinder
+    
+    public void setMode(int mode){
+        this.mode = mode;
+    }
+    
+    public int getMode(){
+        return this.mode;
+    }
+    
+    
+        public void setDraw3D(){
+        jPanelShow.removeAll();
+        jPanelShow.setSize(800,800);
+        jPanelShow.setLayout(new BorderLayout());
+        jPanelShow.add(new MyCanvas3D());
+        jPanelShow.validate();
     }
 
     /**
@@ -28,55 +54,76 @@ public class PanelDraw3D extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanelInput = new javax.swing.JPanel();
-        jLabelX2 = new javax.swing.JLabel();
-        jLabelY2 = new javax.swing.JLabel();
-        jTextFieldX2 = new javax.swing.JTextField();
-        jTextFieldY2 = new javax.swing.JTextField();
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(120, 0), new java.awt.Dimension(120, 0), new java.awt.Dimension(120, 32767));
-        jButtonDraw = new javax.swing.JButton();
+        jButtonCycl = new javax.swing.JButton();
         jButtonClear = new javax.swing.JButton();
-        jLabelY1 = new javax.swing.JLabel();
-        jTextFieldY1 = new javax.swing.JTextField();
-        jTextFieldX1 = new javax.swing.JTextField();
-        jLabelX1 = new javax.swing.JLabel();
-        jLabelZ1 = new javax.swing.JLabel();
-        jTextFieldZ1 = new javax.swing.JTextField();
-        jLabelZ2 = new javax.swing.JLabel();
-        jTextFieldZ2 = new javax.swing.JTextField();
+        JTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        JTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jButtonRect = new javax.swing.JButton();
+        jButtonDraw = new javax.swing.JButton();
         jPanelShow = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
 
         jPanelInput.setBackground(java.awt.SystemColor.controlDkShadow);
         jPanelInput.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabelX2.setText("X2");
-        jPanelInput.add(jLabelX2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
-
-        jLabelY2.setText("Y2");
-        jPanelInput.add(jLabelY2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
-
-        jTextFieldX2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextFieldX2KeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldX2KeyTyped(evt);
-            }
-        });
-        jPanelInput.add(jTextFieldX2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 102, -1));
-
-        jTextFieldY2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldY2ActionPerformed(evt);
-            }
-        });
-        jTextFieldY2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldY2KeyTyped(evt);
-            }
-        });
-        jPanelInput.add(jTextFieldY2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 103, -1));
         jPanelInput.add(filler3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 375, -1, -1));
+
+        jButtonCycl.setText("Hình trụ");
+        jButtonCycl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCyclActionPerformed(evt);
+            }
+        });
+        jPanelInput.add(jButtonCycl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, -1));
+
+        jButtonClear.setText("Xóa");
+        jButtonClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClearActionPerformed(evt);
+            }
+        });
+        jPanelInput.add(jButtonClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 60, -1));
+
+        JTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTextField1KeyTyped(evt);
+            }
+        });
+        jPanelInput.add(JTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, -1));
+
+        jLabel1.setText("X");
+        jPanelInput.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+
+        jLabel2.setText("Y");
+        jPanelInput.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+
+        JTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTextField2KeyTyped(evt);
+            }
+        });
+        jPanelInput.add(JTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, -1));
+
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3KeyTyped(evt);
+            }
+        });
+        jPanelInput.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 100, -1));
+
+        jLabel3.setText("Z");
+        jPanelInput.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+
+        jButtonRect.setText("Hình hộp chữ nhật");
+        jButtonRect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRectActionPerformed(evt);
+            }
+        });
+        jPanelInput.add(jButtonRect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 140, -1));
 
         jButtonDraw.setText("Vẽ");
         jButtonDraw.addActionListener(new java.awt.event.ActionListener() {
@@ -84,76 +131,19 @@ public class PanelDraw3D extends javax.swing.JPanel {
                 jButtonDrawActionPerformed(evt);
             }
         });
-        jPanelInput.add(jButtonDraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 60, -1));
-
-        jButtonClear.setText("Xóa");
-        jPanelInput.add(jButtonClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 60, -1));
-
-        jLabelY1.setText("Y1");
-        jPanelInput.add(jLabelY1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
-
-        jTextFieldY1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldY1KeyTyped(evt);
-            }
-        });
-        jPanelInput.add(jTextFieldY1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 102, -1));
-
-        jTextFieldX1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldX1KeyTyped(evt);
-            }
-        });
-        jPanelInput.add(jTextFieldX1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 102, -1));
-
-        jLabelX1.setText("X1");
-        jPanelInput.add(jLabelX1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
-
-        jLabelZ1.setText("Z1");
-        jPanelInput.add(jLabelZ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
-
-        jTextFieldZ1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextFieldZ1KeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldZ1KeyTyped(evt);
-            }
-        });
-        jPanelInput.add(jTextFieldZ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 102, -1));
-
-        jLabelZ2.setText("Z2");
-        jPanelInput.add(jLabelZ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
-
-        jTextFieldZ2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextFieldZ2KeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldZ2KeyTyped(evt);
-            }
-        });
-        jPanelInput.add(jTextFieldZ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 102, -1));
+        jPanelInput.add(jButtonDraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 60, -1));
 
         jPanelShow.setBackground(new java.awt.Color(204, 204, 204));
-
-        jButton1.setText("3D");
 
         javax.swing.GroupLayout jPanelShowLayout = new javax.swing.GroupLayout(jPanelShow);
         jPanelShow.setLayout(jPanelShowLayout);
         jPanelShowLayout.setHorizontalGroup(
             jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelShowLayout.createSequentialGroup()
-                .addGap(296, 296, 296)
-                .addComponent(jButton1)
-                .addContainerGap(529, Short.MAX_VALUE))
+            .addGap(0, 872, Short.MAX_VALUE)
         );
         jPanelShowLayout.setVerticalGroup(
             jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelShowLayout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 334, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -175,69 +165,145 @@ public class PanelDraw3D extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldX2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldX2KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldX2KeyPressed
+    private void jButtonCyclActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCyclActionPerformed
+        setCylinder();
+    }//GEN-LAST:event_jButtonCyclActionPerformed
 
-    private void jTextFieldX2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldX2KeyTyped
+    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldX2KeyTyped
+        checkOnlyNumber(evt, false);
 
-    private void jTextFieldY2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldY2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldY2ActionPerformed
+    }//GEN-LAST:event_jTextField3KeyTyped
 
-    private void jTextFieldY2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldY2KeyTyped
+    private void jButtonRectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRectActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldY2KeyTyped
+        setRectangleBox();
+    }//GEN-LAST:event_jButtonRectActionPerformed
+
+    private void JTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTextField2KeyTyped
+        // TODO add your handling code here:
+        checkOnlyNumber(evt, false);
+    }//GEN-LAST:event_JTextField2KeyTyped
+
+    private void JTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTextField1KeyTyped
+        // TODO add your handling code here:
+        checkOnlyNumber(evt, false);
+    }//GEN-LAST:event_JTextField1KeyTyped
 
     private void jButtonDrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDrawActionPerformed
         // TODO add your handling code here:
+        try{
+            if(getMode() == 0){
+            drawRectBox();
+            }
+            else{
+                drawCylinder();
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập đủ hoặc nhập sai thông số.");
+        }
+        
     }//GEN-LAST:event_jButtonDrawActionPerformed
 
-    private void jTextFieldY1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldY1KeyTyped
+    private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldY1KeyTyped
-
-    private void jTextFieldX1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldX1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldX1KeyTyped
-
-    private void jTextFieldZ1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldZ1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldZ1KeyPressed
-
-    private void jTextFieldZ1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldZ1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldZ1KeyTyped
-
-    private void jTextFieldZ2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldZ2KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldZ2KeyPressed
-
-    private void jTextFieldZ2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldZ2KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldZ2KeyTyped
-
+        clear();
+    }//GEN-LAST:event_jButtonClearActionPerformed
+    
+    public void checkOnlyNumber(KeyEvent evt, boolean positive){
+        char c = evt.getKeyChar();
+        if (!((c >= '0') && (c <= '9') ||
+            (c == KeyEvent.VK_BACK_SPACE) ||
+            (c == KeyEvent.VK_DELETE) ||
+            ((c == KeyEvent.VK_MINUS) && positive))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }
+    
+    public void setCylinder(){
+        setMode(1);
+        jButtonClear.setVisible(true);
+        jButtonDraw.setVisible(true);
+        jLabel1.setVisible(true);
+        jLabel2.setVisible(true);
+        JTextField1.setVisible(true);
+        JTextField2.setVisible(true);
+        jLabel3.setVisible(false);
+        jTextField3.setVisible(false);
+        jLabel1.setText("R");
+        jLabel2.setText("H");
+    }
+    
+    public void setRectangleBox(){
+        setMode(0);
+        jButtonClear.setVisible(true);
+        jButtonDraw.setVisible(true);
+        jLabel1.setVisible(true);
+        jLabel2.setVisible(true);
+        JTextField1.setVisible(true);
+        JTextField2.setVisible(true);
+        jLabel3.setVisible(true);
+        jTextField3.setVisible(true);
+        jLabel1.setText("X");
+        jLabel2.setText("Y");
+        jLabel3.setText("Z");
+    }
+    
+    public void setStart(){
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+        jLabel3.setVisible(false);
+        JTextField1.setVisible(false);
+        JTextField2.setVisible(false);
+        jTextField3.setVisible(false);
+        jButtonClear.setVisible(false);
+        jButtonDraw.setVisible(false);
+   }
+    
+    public void drawRectBox(){
+        int x = Integer.parseInt(JTextField1.getText());
+        int y = Integer.parseInt(JTextField2.getText());
+        int z = Integer.parseInt(jTextField3.getText());
+        Draw3D.DrawRectangular(x, y, z, jPanelShow);
+    }
+    
+    public void drawCylinder(){
+        int r = Integer.parseInt(JTextField1.getText());
+        int h = Integer.parseInt(JTextField2.getText());
+        Draw3D.DrawCylinder(r, h, jPanelShow);
+    }
+    
+    public void clear(){
+        resetTextField();
+        jPanelShow.removeAll();
+        jPanelShow.setSize(800,800);
+        jPanelShow.setLayout(new BorderLayout());
+        jPanelShow.add(new MyCanvas3D());
+        jPanelShow.validate();
+    }
+    
+    public void resetTextField(){
+        JTextField1.setText("");
+        JTextField2.setText("");
+        jTextField3.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField JTextField1;
+    private javax.swing.JTextField JTextField2;
     private javax.swing.Box.Filler filler3;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonClear;
+    private javax.swing.JButton jButtonCycl;
     private javax.swing.JButton jButtonDraw;
-    private javax.swing.JLabel jLabelX1;
-    private javax.swing.JLabel jLabelX2;
-    private javax.swing.JLabel jLabelY1;
-    private javax.swing.JLabel jLabelY2;
-    private javax.swing.JLabel jLabelZ1;
-    private javax.swing.JLabel jLabelZ2;
+    private javax.swing.JButton jButtonRect;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanelInput;
     private javax.swing.JPanel jPanelShow;
-    private javax.swing.JTextField jTextFieldX1;
-    private javax.swing.JTextField jTextFieldX2;
-    private javax.swing.JTextField jTextFieldY1;
-    private javax.swing.JTextField jTextFieldY2;
-    private javax.swing.JTextField jTextFieldZ1;
-    private javax.swing.JTextField jTextFieldZ2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
