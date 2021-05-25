@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ktdh_project;
+package ktdh_project.Class3D;
+
+import ktdh_project.Point2D;
 
 /**
  *
@@ -55,6 +57,14 @@ public class Point3D extends Point2D{
     @Override
     public void setX(int x) {
         super.setX(x); 
+    }
+    
+    public static Point2D CabinetConvert(Point3D point3D)
+    {
+        Point2D res = new Point2D();
+        res.setX((int) Math.round(point3D.getX() - point3D.getY()/Math.sqrt(8)));
+        res.setY((int) Math.round(point3D.getZ()- point3D.getY()/Math.sqrt(8)));
+        return res;
     }
     
 }
