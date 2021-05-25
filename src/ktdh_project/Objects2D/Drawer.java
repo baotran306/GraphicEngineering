@@ -8,11 +8,11 @@ package ktdh_project.Objects2D;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import ktdh_project.MyCanvas;
+import ktdh_project.Class2D.MyCanvas;
 
 /**
  *
- * @author DoKhang
+ * @author DoKhang - Duy - Thang
  */
 public class Drawer {
     public static void clear(MyCanvas panel) {
