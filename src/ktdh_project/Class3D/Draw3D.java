@@ -8,12 +8,12 @@ package ktdh_project.Class3D;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-import ktdh_project.Draw;
-import ktdh_project.Point2D;
+import ktdh_project.Class2D.Draw;
+import ktdh_project.Class2D.Point2D;
 
 /**
  *
- * @author aa
+ * @author Hien
  */
 public class Draw3D {
     private MyCanvas3D panel;

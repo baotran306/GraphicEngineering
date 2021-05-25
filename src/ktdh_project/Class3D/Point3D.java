@@ -5,7 +5,7 @@
  */
 package ktdh_project.Class3D;
 
-import ktdh_project.Point2D;
+import ktdh_project.Class2D.Point2D;
 
 /**
  *

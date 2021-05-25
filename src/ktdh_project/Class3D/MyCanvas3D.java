@@ -9,12 +9,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
-import ktdh_project.Draw;
-import ktdh_project.Point2D;
+import ktdh_project.Class2D.Draw;
+import ktdh_project.Class2D.Point2D;
 
 /**
  *
- * @author Tran Quoc Bao
+ * @author Hien
  */
 public class MyCanvas3D extends JPanel{
     @Override
