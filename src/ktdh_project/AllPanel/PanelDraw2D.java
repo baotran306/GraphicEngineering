@@ -8,10 +8,10 @@ package ktdh_project.AllPanel;
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import ktdh_project.LineMode;
-import ktdh_project.MyCanvas;
-import ktdh_project.MyLibrary;
-import ktdh_project.Point2D;
+import ktdh_project.Class2D.LineMode;
+import ktdh_project.Class2D.MyCanvas;
+import ktdh_project.Class2D.MyLibrary;
+import ktdh_project.Class2D.Point2D;
 
 /**
  *
@@ -213,7 +213,14 @@ public class PanelDraw2D extends javax.swing.JPanel {
 
     private void jButtonLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLineActionPerformed
         // TODO add your handling code here:
-        draw2DLine(LineMode.DEFAULT);
+        try{
+            draw2DLine(LineMode.DEFAULT);
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập đủ hoặc nhập sai thông số.");
+        }
+        
     }//GEN-LAST:event_jButtonLineActionPerformed
 
     private void jTextFieldY2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldY2KeyTyped
@@ -236,23 +243,44 @@ public class PanelDraw2D extends javax.swing.JPanel {
 
     private void jButtonCircleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCircleActionPerformed
         // TODO add your handling code here:
-        int r = Integer.parseInt(jTextFieldR.getText());
-        if(r > 80){
-            JOptionPane.showMessageDialog(this, "Bán kính quá lớn, vượt ngoài trục tọa độ, nhập nhỏ hơn");
+        try{
+            int r = Integer.parseInt(jTextFieldR.getText());
+            if(r > 80){
+                JOptionPane.showMessageDialog(this, "Bán kính quá lớn, vượt ngoài trục tọa độ, nhập nhỏ hơn");
+            }
+            else{
+                MyLibrary.CircleMidPoint(r, jPanelShow);
+            }
         }
-        else{
-            MyLibrary.CircleMidPoint(r, jPanelShow);
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập đủ hoặc nhập sai thông số.");
         }
+        
     }//GEN-LAST:event_jButtonCircleActionPerformed
 
     private void jButtonDashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDashActionPerformed
         // TODO add your handling code here:
-        draw2DLine(LineMode.DASH);
+        try{
+            draw2DLine(LineMode.DASH);
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập đủ hoặc nhập sai thông số.");
+        }
+        
     }//GEN-LAST:event_jButtonDashActionPerformed
 
     private void jButtonRectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRectActionPerformed
         // TODO add your handling code here:
-        drawRect();
+        try{
+            drawRect();
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập đủ hoặc nhập sai thông số.");
+        }
+        
     }//GEN-LAST:event_jButtonRectActionPerformed
 
     private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
@@ -323,6 +351,7 @@ public class PanelDraw2D extends javax.swing.JPanel {
         jTextFieldY2.setText("");
         jTextFieldX1.setText("");
         jTextFieldY1.setText("");
+        jTextFieldR.setText("");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
