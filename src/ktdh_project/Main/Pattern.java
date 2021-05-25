@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ktdh_project;
+package ktdh_project.Main;
 
 import ktdh_project.AllPanel.PanelDraw3D;
 import ktdh_project.AllPanel.PanelDraw2D;
 import ktdh_project.AllPanel.PanelAction2D;
 import java.awt.BorderLayout;
-import java.awt.event.KeyEvent;
-import javax.swing.JPanel;
 
 
 /**
@@ -25,7 +23,7 @@ public class Pattern extends javax.swing.JFrame {
     public Pattern() {
         initComponents();
 //        resetAll();
-        this.setSize(1500, 1000);
+        this.setSize(1000, 1000);
         
     }
 
@@ -73,7 +71,7 @@ public class Pattern extends javax.swing.JFrame {
                 jButtonDraw2DActionPerformed(evt);
             }
         });
-        jPanelFunction.add(jButtonDraw2D, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 36, 100, 50));
+        jPanelFunction.add(jButtonDraw2D, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 100, 50));
 
         jButtonAction2D.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButtonAction2D.setText("Cảnh 2D");
@@ -83,7 +81,7 @@ public class Pattern extends javax.swing.JFrame {
                 jButtonAction2DActionPerformed(evt);
             }
         });
-        jPanelFunction.add(jButtonAction2D, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 36, 100, 50));
+        jPanelFunction.add(jButtonAction2D, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 100, 50));
 
         jButtonDraw3D.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButtonDraw3D.setText("Vẽ 3D");
@@ -92,7 +90,7 @@ public class Pattern extends javax.swing.JFrame {
                 jButtonDraw3DActionPerformed(evt);
             }
         });
-        jPanelFunction.add(jButtonDraw3D, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 36, 100, 50));
+        jPanelFunction.add(jButtonDraw3D, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 100, 50));
         jPanelFunction.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 0, -1, -1));
         jPanelFunction.add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 62, 11, -1));
 
@@ -103,7 +101,7 @@ public class Pattern extends javax.swing.JFrame {
                 jButtonExitActionPerformed(evt);
             }
         });
-        jPanelFunction.add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 36, 100, 50));
+        jPanelFunction.add(jButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 100, 50));
 
         jPanelShow.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -134,31 +132,30 @@ public class Pattern extends javax.swing.JFrame {
         jPanelShowLayout.setHorizontalGroup(
             jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelShowLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
                 .addGroup(jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabelWelcome)
                         .addGroup(jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelShowLayout.createSequentialGroup()
-                                .addGap(109, 109, 109)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelShowLayout.createSequentialGroup()
-                                .addContainerGap()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel1)
                                 .addGap(171, 171, 171))))
                     .addGroup(jPanelShowLayout.createSequentialGroup()
-                        .addGap(331, 331, 331)
+                        .addGap(222, 222, 222)
                         .addGroup(jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))))
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
         jPanelShowLayout.setVerticalGroup(
             jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelShowLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(94, 94, 94)
                 .addComponent(jLabelWelcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -202,22 +199,16 @@ public class Pattern extends javax.swing.JFrame {
 
     private void jButtonDraw2DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDraw2DActionPerformed
         setDraw2D();
-//        resetDraw2D();
-//        resetTextField();
         
     }//GEN-LAST:event_jButtonDraw2DActionPerformed
 
     private void jButtonDraw3DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDraw3DActionPerformed
         setDraw3D();
-//        resetDraw3D();
-//        resetTextField();
         
     }//GEN-LAST:event_jButtonDraw3DActionPerformed
 
     private void jButtonAction2DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAction2DActionPerformed
         setAction2D();
-//        resetAction2D();
-//        resetTextField();
         
     }//GEN-LAST:event_jButtonAction2DActionPerformed
 
@@ -269,22 +260,6 @@ public class Pattern extends javax.swing.JFrame {
         jPanelShow.add(panel.getComponent(0));
         jPanelInput.validate();
         jPanelShow.validate();
-    }
-    
-    public void checkNumberType(KeyEvent evt){
-        char c = evt.getKeyChar();
-        if (!((c >= '0') && (c <= '9') ||
-            (c == KeyEvent.VK_BACK_SPACE) ||
-            (c == KeyEvent.VK_DELETE) ||
-            (c == KeyEvent.VK_MINUS))) {
-            getToolkit().beep();
-            evt.consume();
-        }
-    }
-    
-    
-    public void showInput(){
-        
     }
    
     public static void main(String args[]) {

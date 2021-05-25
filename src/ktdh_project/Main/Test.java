@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ktdh_project;
+package ktdh_project.Main;
+
+import ktdh_project.Class3D.Point3D;
+import ktdh_project.Class2D.Point2D;
 
 /**
  *
