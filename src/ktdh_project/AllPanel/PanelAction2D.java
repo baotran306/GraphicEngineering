@@ -9,19 +9,18 @@ import java.awt.BorderLayout;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JPanel;
-import ktdh_project.MyCanvas;
+import ktdh_project.Class2D.MyCanvas;
 import ktdh_project.Objects2D.Cloud;
 import ktdh_project.Objects2D.Drawer;
 import ktdh_project.Objects2D.Explosive;
 import ktdh_project.Objects2D.Helicopter;
 import ktdh_project.Objects2D.Rocket;
 import ktdh_project.Objects2D.RocketStruck;
-import ktdh_project.Pattern;
+import ktdh_project.Main.Pattern;
 
 /**
  *
- * @author Tran Quoc Bao
+ * @author Duy - Thang - Khang - Bao
  */
 public class PanelAction2D extends javax.swing.JPanel {
 
@@ -60,6 +59,11 @@ public class PanelAction2D extends javax.swing.JPanel {
         jPanelInput.add(jButtonDraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 70, -1));
 
         JButtonReload.setText("Vẽ lại");
+        JButtonReload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonReloadActionPerformed(evt);
+            }
+        });
         jPanelInput.add(JButtonReload, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 70, -1));
 
         jPanelShow.setBackground(new java.awt.Color(255, 255, 255));
@@ -96,14 +100,12 @@ public class PanelAction2D extends javax.swing.JPanel {
 
     private void jButtonDrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDrawActionPerformed
         // TODO add your handling code here:
-        jPanelShow.removeAll();
-        jPanelShow.setSize(800,800);
-        jPanelShow.setLayout(new BorderLayout());
-        MyCanvas panel = new MyCanvas();
-        jPanelShow.add(panel);
-        jPanelShow.validate();
-        Action(panel);
+        drawAction2D();
     }//GEN-LAST:event_jButtonDrawActionPerformed
+
+    private void JButtonReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonReloadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JButtonReloadActionPerformed
     public void Action(MyCanvas panel){
         Helicopter helicopter = new Helicopter(-5, 20, 10, 5, false);
         Rocket rocket = new Rocket(-3, 80, 10, 20, 0.70710678118);
@@ -154,7 +156,7 @@ public class PanelAction2D extends javax.swing.JPanel {
                 Logger.getLogger(Pattern.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        for(int i=0;i<=5;i++){                                    
+        for(int i=0;i<=5;i++){
             explosive.changeSize(i);                   
 
             Drawer.cloud(panel, cloud);
@@ -193,16 +195,27 @@ public class PanelAction2D extends javax.swing.JPanel {
             }
         }
                 
-                Drawer.clear(panel);
-                Drawer.struck(struck,panel);
-                Drawer.sun(150, 10, 10, panel);
-                Drawer.cloud(panel, cloud);
-                Drawer.cloud(panel ,cloud1);
-                try {
-                        TimeUnit.MILLISECONDS.sleep(5000);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Pattern.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+        Drawer.clear(panel);
+        Drawer.struck(struck,panel);
+        Drawer.sun(150, 10, 10, panel);
+        Drawer.cloud(panel, cloud);
+        Drawer.cloud(panel ,cloud1);
+        try {
+                TimeUnit.MILLISECONDS.sleep(3000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Pattern.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+    
+    public void drawAction2D(){
+        jPanelShow.removeAll();
+        jPanelShow.setSize(800,800);
+        jPanelShow.setLayout(new BorderLayout());
+        MyCanvas panel = new MyCanvas();
+        jPanelShow.add(panel);
+        jPanelShow.validate();
+        Action(panel);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
