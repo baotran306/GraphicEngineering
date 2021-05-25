@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ktdh_project;
+package ktdh_project.Class2D;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -20,6 +20,8 @@ public class MyLibrary {
         }
         return true;
     }
+    
+    
     
     public static int convert2DX(int x){
         return x * 5 + 400;
@@ -115,5 +117,7 @@ public class MyLibrary {
 
         }
     }
+    
+    
     
 }
