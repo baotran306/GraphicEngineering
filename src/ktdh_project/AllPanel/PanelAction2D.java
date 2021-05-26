@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ktdh_project.Class2D.MyCanvas;
+import ktdh_project.Class2D.Point2D;
 import ktdh_project.Objects2D.Cloud;
 import ktdh_project.Objects2D.Drawer;
 import ktdh_project.Objects2D.Explosive;
@@ -43,7 +44,6 @@ public class PanelAction2D extends javax.swing.JPanel {
         jPanelInput = new javax.swing.JPanel();
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(120, 0), new java.awt.Dimension(120, 0), new java.awt.Dimension(120, 32767));
         jButtonDraw = new javax.swing.JButton();
-        JButtonReload = new javax.swing.JButton();
         jPanelShow = new javax.swing.JPanel();
 
         jPanelInput.setBackground(java.awt.SystemColor.controlDkShadow);
@@ -57,14 +57,6 @@ public class PanelAction2D extends javax.swing.JPanel {
             }
         });
         jPanelInput.add(jButtonDraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 70, -1));
-
-        JButtonReload.setText("Vẽ lại");
-        JButtonReload.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButtonReloadActionPerformed(evt);
-            }
-        });
-        jPanelInput.add(JButtonReload, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 70, -1));
 
         jPanelShow.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -102,10 +94,6 @@ public class PanelAction2D extends javax.swing.JPanel {
         // TODO add your handling code here:
         drawAction2D();
     }//GEN-LAST:event_jButtonDrawActionPerformed
-
-    private void JButtonReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonReloadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JButtonReloadActionPerformed
     public void Action(MyCanvas panel){
         Helicopter helicopter = new Helicopter(-5, 20, 10, 5, false);
         Rocket rocket = new Rocket(-3, 80, 10, 20, 0.70710678118);
@@ -219,7 +207,6 @@ public class PanelAction2D extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JButtonReload;
     private javax.swing.Box.Filler filler3;
     private javax.swing.JButton jButtonDraw;
     private javax.swing.JPanel jPanelInput;

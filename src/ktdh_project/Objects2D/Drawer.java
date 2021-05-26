@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import ktdh_project.Class2D.MyCanvas;
+import ktdh_project.Class2D.Point2D;
 
 /**
  *
@@ -19,7 +20,12 @@ public class Drawer {
         Graphics g = panel.getGraphics();
         g.setColor(Color.WHITE);
         g.fillRect(0, 0, 800, 800);
-         Graphics2D g2d = (Graphics2D) g;
+        Graphics2D g2d = (Graphics2D) g;
+
+        g.setColor(Color.GREEN);
+        g.fillRect(0, 330, 800, 470);
+        g.setColor(Color.CYAN);
+        g.fillRect(0, 0, 800, 330);
         g2d.setColor(Color.BLACK);
         for (int i = 0; i <= 800; i += 5) {
             g2d.drawLine(i, 0, i, 800);
@@ -678,6 +684,24 @@ public class Drawer {
 
     }
 
+    public static Point2D showCoorHelicopter(Helicopter helicopter){
+        int xHeli = helicopter.getX();
+        int yHeli = helicopter.getY();
+        return new Point2D(xHeli, yHeli);
+    }
+    
+    public static Point2D showCoorStruck(RocketStruck struck){
+        int xStruck = struck.getX();
+        int yStruck = struck.getY();
+        return new Point2D(xStruck, yStruck);
+    }
+    
+    public static Point2D showCoorRocket(Rocket rocket){
+        int xRocket = rocket.getX();
+        int yRocket = rocket.getY();
+        return new Point2D(xRocket, yRocket);
+    }
+    
     static void Explosive() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
