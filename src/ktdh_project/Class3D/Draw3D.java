@@ -77,19 +77,19 @@ public class Draw3D {
 
     }
     // cubic 
-    public static void DrawRectangular(int x,int y,int z, JPanel panel)
+    public static void DrawRectangular(int x,int y,int z,Point3D root, JPanel panel)
     {
 //        Graphics g = panel.getGraphics();
 //         g.clearRect(0, 0, 800, 800);
 //         panel.paintComponent(g);
-        Point3D point1 = new Point3D(0,0,0);
-        Point3D point2 = new Point3D(x,0,0);
-        Point3D point3 = new Point3D(x,y,0);
-        Point3D point4 = new Point3D(0,y,0);
-        Point3D point5 = new Point3D(0,0,z);
-        Point3D point6 = new Point3D(x,0,z);
-        Point3D point7 = new Point3D(x,y,z);
-        Point3D point8 = new Point3D(0,y,z);
+        Point3D point1 = new Point3D(0+ root.getX(),0+root.getY(),0+root.getZ());
+        Point3D point2 = new Point3D(x+ root.getX(),0+root.getY(),0+root.getZ());
+        Point3D point3 = new Point3D(x+ root.getX(),y+root.getY(),0+root.getZ());
+        Point3D point4 = new Point3D(0+ root.getX(),y+root.getY(),0+root.getZ());
+        Point3D point5 = new Point3D(0+ root.getX(),0+root.getY(),z+root.getZ());
+        Point3D point6 = new Point3D(x+ root.getX(),0+root.getY(),z+root.getZ());
+        Point3D point7 = new Point3D(x+ root.getX(),y+root.getY(),z+root.getZ());
+        Point3D point8 = new Point3D(0+ root.getX(),y+root.getY(),z+root.getZ());
         
         Point2D p2d1 = Point3D.CabinetConvert(point1);
         Point2D p2d2 = Point3D.CabinetConvert(point2);
@@ -143,22 +143,24 @@ public class Draw3D {
         }
     }
     
-  public static void DrawCylinder(int r,int h, JPanel panel)
+  public static void DrawCylinder(int r,int h,Point3D center, JPanel panel)
   {
       
 //      Graphics g = panel.getGraphics();
 //      g.clearRect(0, 0, 800, 800);
 //      panel.paintComponent(g);
       int ry = (int) (r/Math.sqrt(8));
-      MidEllipse(r,ry,h, panel);
-      MidDashEllipse(r,ry , 0, panel);
-      Draw.LineWith2Point( new Point2D(r,0),new Point2D(r,h), panel, Color.red);
-      Draw.LineWith2Point( new Point2D(-r,0),new Point2D(-r,h), panel, Color.red);
-      Draw.LineWith2Point( new Point2D(r,h),new Point2D(0,h), panel, Color.red);
-      Draw.DashWith2Point(new Point2D(0,0),new Point2D(0,h), panel, Color.red);
-      Draw.DashWith2Point(new Point2D(0,0),new Point2D(r,0), panel, Color.red);
+      Point2D center2D =Point3D.CabinetConvert(center);
+      MidEllipse(r,ry,h,center2D, panel);
+      MidDashEllipse(r,ry , 0,center2D,panel);
+      
+      Draw.LineWith2Point( new Point2D(r + center2D.getX(),0 + center2D.getY()),new Point2D(r + center2D.getX(),h+ center2D.getY()), panel, Color.red);
+      Draw.LineWith2Point( new Point2D(-r + center2D.getX(),0+ center2D.getY()),new Point2D(-r + center2D.getX(),h+ center2D.getY()), panel, Color.red);
+      Draw.LineWith2Point( new Point2D(r + center2D.getX(),h+ center2D.getY()),new Point2D(0 + center2D.getX(),h+ center2D.getY()), panel, Color.red);
+      Draw.DashWith2Point(new Point2D(0 + center2D.getX(),0+ center2D.getY()),new Point2D(0 + center2D.getX(),h+ center2D.getY()), panel, Color.red);
+      Draw.DashWith2Point(new Point2D(0 + center2D.getX(),0+ center2D.getY()),new Point2D(r + center2D.getX(),0+ center2D.getY()), panel, Color.red);
   }
-  public static void MidEllipse(int rx, int ry,int z, JPanel panel) {
+  public static void MidEllipse(int rx, int ry,int z,Point2D center, JPanel panel) {
         float dx, dy, d1, d2;
         int x, y;
         x = 0;
@@ -175,10 +177,10 @@ public class Draw3D {
             // Put4Pixel(x,y);
 
            
-            fillColor(new Point2D(x, y+z), panel);
-            fillColor(new Point2D(-x, y+z), panel);
-            fillColor(new Point2D(x, -y+z), panel);
-            fillColor(new Point2D(-x, -y+z), panel);
+            fillColor(new Point2D(x + center.getX(), y+z + center.getY()), panel);
+            fillColor(new Point2D(-x + center.getX(), y+z+ center.getY()), panel);
+            fillColor(new Point2D(x+ center.getX(), -y+z+ center.getY()), panel);
+            fillColor(new Point2D(-x+ center.getX(), -y+z+ center.getY()), panel);
 
             // Checking and updating value of
             // decision parameter based on algorithm
@@ -204,10 +206,10 @@ public class Draw3D {
             System.out.println(x / 4 % 2 + " ");
             // printing points based on 4-way symmetry
             
-            fillColor(new Point2D(x, y+z), panel);
-            fillColor(new Point2D(-x, y+z), panel);
-            fillColor(new Point2D(x, -y+z), panel);
-            fillColor(new Point2D(-x, -y+z), panel);
+            fillColor(new Point2D(x+ center.getX(), y+z+ center.getY()), panel);
+            fillColor(new Point2D(-x+ center.getX(), y+z+ center.getY()), panel);
+            fillColor(new Point2D(x+ center.getX(), -y+z+ center.getY()), panel);
+            fillColor(new Point2D(-x+ center.getX(), -y+z+ center.getY()), panel);
 
             // Checking and updating parameter
             // value based on algorithm
@@ -224,7 +226,7 @@ public class Draw3D {
             }
         }
     }
-  public static void MidDashEllipse(int rx, int ry,int z, JPanel panel) {
+  public static void MidDashEllipse(int rx, int ry,int z,Point2D center, JPanel panel) {
         float dx, dy, d1, d2;
         int x, y;
         x = 0;
@@ -241,12 +243,12 @@ public class Draw3D {
             // Put4Pixel(x,y);
 
             if (x / 4 % 2 == 1) {
-                fillColor(new Point2D(x, y+z), panel);
-                fillColor(new Point2D(-x, y+z), panel);
+                fillColor(new Point2D(x+ center.getX(), y+z+ center.getY()), panel);
+                fillColor(new Point2D(-x+ center.getX(), y+z+ center.getY()), panel);
 
             }
-            fillColor(new Point2D(x, -y+z), panel);
-            fillColor(new Point2D(-x, -y+z), panel);
+            fillColor(new Point2D(x+ center.getX(), -y+z+ center.getY()), panel);
+            fillColor(new Point2D(-x+ center.getX(), -y+z+ center.getY()), panel);
 
             // Checking and updating value of
             // decision parameter based on algorithm
@@ -272,12 +274,12 @@ public class Draw3D {
             System.out.println(x / 4 % 2 + " ");
             // printing points based on 4-way symmetry
             if (y / 4 % 2 == 1) {
-                fillColor(new Point2D(x, y+z), panel);
-                fillColor(new Point2D(-x, y+z), panel);
+                fillColor(new Point2D(x+ center.getX(), y+z+center.getY()), panel);
+                fillColor(new Point2D(-x+ center.getX(), y+z+center.getY()), panel);
 
             }
-            fillColor(new Point2D(x, -y+z), panel);
-            fillColor(new Point2D(-x, -y+z), panel);
+            fillColor(new Point2D(x+ center.getX(), -y+z+center.getY()), panel);
+            fillColor(new Point2D(-x+ center.getX(), -y+z+center.getY()), panel);
 
             // Checking and updating parameter
             // value based on algorithm

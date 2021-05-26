@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import ktdh_project.Class3D.Draw3D;
 import ktdh_project.Class3D.MyCanvas3D;
+import ktdh_project.Class3D.Point3D;
 
 /**
  *
@@ -65,6 +66,15 @@ public class PanelDraw3D extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jButtonRect = new javax.swing.JButton();
         jButtonDraw = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        JTfRootX = new javax.swing.JTextField();
+        jLbRootX = new javax.swing.JLabel();
+        jLbRootY = new javax.swing.JLabel();
+        JTfRootY = new javax.swing.JTextField();
+        jTfRootZ = new javax.swing.JTextField();
+        jLbRootZ = new javax.swing.JLabel();
+        jLbRoot = new javax.swing.JLabel();
         jPanelShow = new javax.swing.JPanel();
 
         jPanelInput.setBackground(java.awt.SystemColor.controlDkShadow);
@@ -77,7 +87,7 @@ public class PanelDraw3D extends javax.swing.JPanel {
                 jButtonCyclActionPerformed(evt);
             }
         });
-        jPanelInput.add(jButtonCycl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, -1));
+        jPanelInput.add(jButtonCycl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 140, -1));
 
         jButtonClear.setText("Xóa");
         jButtonClear.addActionListener(new java.awt.event.ActionListener() {
@@ -85,37 +95,42 @@ public class PanelDraw3D extends javax.swing.JPanel {
                 jButtonClearActionPerformed(evt);
             }
         });
-        jPanelInput.add(jButtonClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 60, -1));
+        jPanelInput.add(jButtonClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 60, -1));
 
+        JTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTextField1ActionPerformed(evt);
+            }
+        });
         JTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JTextField1KeyTyped(evt);
             }
         });
-        jPanelInput.add(JTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, -1));
+        jPanelInput.add(JTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 100, -1));
 
         jLabel1.setText("X");
-        jPanelInput.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+        jPanelInput.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         jLabel2.setText("Y");
-        jPanelInput.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jPanelInput.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
         JTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 JTextField2KeyTyped(evt);
             }
         });
-        jPanelInput.add(JTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 100, -1));
+        jPanelInput.add(JTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 100, -1));
 
         jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField3KeyTyped(evt);
             }
         });
-        jPanelInput.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 100, -1));
+        jPanelInput.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 100, -1));
 
         jLabel3.setText("Z");
-        jPanelInput.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+        jPanelInput.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
 
         jButtonRect.setText("Hình hộp chữ nhật");
         jButtonRect.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +138,7 @@ public class PanelDraw3D extends javax.swing.JPanel {
                 jButtonRectActionPerformed(evt);
             }
         });
-        jPanelInput.add(jButtonRect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 140, -1));
+        jPanelInput.add(jButtonRect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 140, -1));
 
         jButtonDraw.setText("Vẽ");
         jButtonDraw.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +146,42 @@ public class PanelDraw3D extends javax.swing.JPanel {
                 jButtonDrawActionPerformed(evt);
             }
         });
-        jPanelInput.add(jButtonDraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 60, -1));
+        jPanelInput.add(jButtonDraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 60, -1));
+        jPanelInput.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, -1));
+        jPanelInput.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 140, -1));
+
+        JTfRootX.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTfRootXKeyTyped(evt);
+            }
+        });
+        jPanelInput.add(JTfRootX, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 100, -1));
+
+        jLbRootX.setText("X");
+        jPanelInput.add(jLbRootX, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+
+        jLbRootY.setText("Y");
+        jPanelInput.add(jLbRootY, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+
+        JTfRootY.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                JTfRootYKeyTyped(evt);
+            }
+        });
+        jPanelInput.add(JTfRootY, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 100, -1));
+
+        jTfRootZ.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTfRootZKeyTyped(evt);
+            }
+        });
+        jPanelInput.add(jTfRootZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, -1));
+
+        jLbRootZ.setText("Z");
+        jPanelInput.add(jLbRootZ, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+
+        jLbRoot.setText("Tâm");
+        jPanelInput.add(jLbRoot, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
         jPanelShow.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -143,7 +193,7 @@ public class PanelDraw3D extends javax.swing.JPanel {
         );
         jPanelShowLayout.setVerticalGroup(
             jPanelShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 334, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -158,7 +208,7 @@ public class PanelDraw3D extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelInput, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+            .addComponent(jPanelInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(128, 128, 128)
                 .addComponent(jPanelShow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -211,6 +261,22 @@ public class PanelDraw3D extends javax.swing.JPanel {
         // TODO add your handling code here:
         clear();
     }//GEN-LAST:event_jButtonClearActionPerformed
+
+    private void JTfRootXKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTfRootXKeyTyped
+        checkOnlyNumber(evt, true);
+    }//GEN-LAST:event_JTfRootXKeyTyped
+
+    private void JTfRootYKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTfRootYKeyTyped
+        checkOnlyNumber(evt, true);
+    }//GEN-LAST:event_JTfRootYKeyTyped
+
+    private void jTfRootZKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTfRootZKeyTyped
+        checkOnlyNumber(evt, true);
+    }//GEN-LAST:event_jTfRootZKeyTyped
+
+    private void JTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTextField1ActionPerformed
     
     public void checkOnlyNumber(KeyEvent evt, boolean positive){
         char c = evt.getKeyChar();
@@ -225,6 +291,7 @@ public class PanelDraw3D extends javax.swing.JPanel {
     
     public void setCylinder(){
         setMode(1);
+        showRootInput();
         jButtonClear.setVisible(true);
         jButtonDraw.setVisible(true);
         jLabel1.setVisible(true);
@@ -239,6 +306,7 @@ public class PanelDraw3D extends javax.swing.JPanel {
     
     public void setRectangleBox(){
         setMode(0);
+        showRootInput();
         jButtonClear.setVisible(true);
         jButtonDraw.setVisible(true);
         jLabel1.setVisible(true);
@@ -259,21 +327,48 @@ public class PanelDraw3D extends javax.swing.JPanel {
         JTextField1.setVisible(false);
         JTextField2.setVisible(false);
         jTextField3.setVisible(false);
+        jLbRootX.setVisible(false);
+        jLbRootY.setVisible(false);
+        jLbRootZ.setVisible(false);
+        JTfRootX.setVisible(false);
+        JTfRootY.setVisible(false);
+        jTfRootZ.setVisible(false);
+        jLbRoot.setVisible(false);
         jButtonClear.setVisible(false);
         jButtonDraw.setVisible(false);
    }
+    
+    public void showRootInput(){
+        jLbRootX.setVisible(true);
+        jLbRootY.setVisible(true);
+        jLbRootZ.setVisible(true);
+        JTfRootX.setVisible(true);
+        JTfRootY.setVisible(true);
+        jTfRootZ.setVisible(true);
+        jLbRoot.setVisible(true);
+    }
     
     public void drawRectBox(){
         int x = Integer.parseInt(JTextField1.getText());
         int y = Integer.parseInt(JTextField2.getText());
         int z = Integer.parseInt(jTextField3.getText());
-        Draw3D.DrawRectangular(x, y, z, jPanelShow);
+        
+        int rootX = Integer.parseInt(JTfRootX.getText());
+        int rootY = Integer.parseInt(JTfRootY.getText());
+        int rootZ = Integer.parseInt(jTfRootZ.getText());
+        
+        Draw3D.DrawRectangular(x, y, z,new Point3D(rootX, rootY, rootZ), jPanelShow);
     }
     
     public void drawCylinder(){
         int r = Integer.parseInt(JTextField1.getText());
         int h = Integer.parseInt(JTextField2.getText());
-        Draw3D.DrawCylinder(r, h, jPanelShow);
+        
+        int rootX = Integer.parseInt(JTfRootX.getText());
+        int rootY = Integer.parseInt(JTfRootY.getText());
+        int rootZ = Integer.parseInt(jTfRootZ.getText());
+        
+        Draw3D.DrawCylinder(r, h,new Point3D(rootX, rootY, rootZ), jPanelShow);
     }
     
     public void clear(){
@@ -289,11 +384,16 @@ public class PanelDraw3D extends javax.swing.JPanel {
         JTextField1.setText("");
         JTextField2.setText("");
         jTextField3.setText("");
+        JTfRootX.setText("");
+        JTfRootY.setText("");
+        jTfRootZ.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextField1;
     private javax.swing.JTextField JTextField2;
+    private javax.swing.JTextField JTfRootX;
+    private javax.swing.JTextField JTfRootY;
     private javax.swing.Box.Filler filler3;
     private javax.swing.JButton jButtonClear;
     private javax.swing.JButton jButtonCycl;
@@ -302,8 +402,15 @@ public class PanelDraw3D extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLbRoot;
+    private javax.swing.JLabel jLbRootX;
+    private javax.swing.JLabel jLbRootY;
+    private javax.swing.JLabel jLbRootZ;
     private javax.swing.JPanel jPanelInput;
     private javax.swing.JPanel jPanelShow;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTfRootZ;
     // End of variables declaration//GEN-END:variables
 }
