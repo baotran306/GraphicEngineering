@@ -31,6 +31,9 @@ public class Drawer {
             g2d.drawLine(i, 0, i, 800);
             g2d.drawLine(0, i, 800, i);
         }
+        g2d.setColor(Color.BLUE);
+        g.fillRect(400, 0, 5, 800);
+        g.fillRect(0, 400, 800, 5);
     }
 
     public static int diemDoiXung(int x, int Ox) {
@@ -566,6 +569,22 @@ public class Drawer {
 
             putPixel(c, d, a -12, b + ry +(ry-5), panel,Color.BLACK);
         }
+        
+          c = 0;
+            d = rx * 1 / 6;
+            p = 1 - rx * 2 / 3;
+            putPixel(c, d, a + 12, b + ry + (ry - 22), panel, Color.BLACK);
+            while (c < d) {
+                if (p < 0) {
+                    p += 2 * c + 2;
+                } else {
+                    p += 2 * (c - d) + 5;
+                    d--;
+                }
+                c++;
+
+                putPixel(c, d, a + 12, b + ry + (ry - 22), panel, Color.BLACK);
+            }
     }
 
     public static void sun(int a, int b, int r, MyCanvas panel) {
@@ -701,6 +720,36 @@ public class Drawer {
         int yRocket = rocket.getY();
         return new Point2D(xRocket, yRocket);
     }
+    
+    public static void getXY(int x, int y, int xRocket, int yRocket, int xHelicopter, int yHelicopter, int xCloud1, int yCloud1, int xCloud2, int yCloud2, MyCanvas panel) {
+        Graphics g = panel.getGraphics();
+        g.setColor(Color.GRAY);
+        g.fillRect(800, 0, 200, 800);
+        g.setColor(Color.BLACK);
+        g.drawString("Xe tải( " + (x)  + ", " + (y)  + ")", 850, 20);
+        g.drawString("Tên lửa( " + (xRocket)  + ", " + yRocket  + ")", 850, 60);
+        g.drawString("Trực thăng( " + xHelicopter  + ", " + yHelicopter  + ")", 850, 100);
+        g.drawString("Mặt trời( " + 70  + ", " + 70  + ")", 850, 140);
+        g.drawString("Mây( " + xCloud1  + ", " + yCloud1  + ")", 850, 180);
+        g.drawString("Mây( " + xCloud2  + ", " + yCloud2  + ")", 850, 220);
+    }
+
+    public static void showXY(MyCanvas panel, RocketStruck struck, Rocket rocket, Helicopter helicopter, Cloud cloud1, Cloud cloud2) {
+        int x = struck.getX()  - 80 ;
+        int y = -struck.getY()   +80;
+        //rocket.getAngle()
+        int xRocket = (rocket.getX()-80)  ;
+        int yRocket = -rocket.getY() + 80 ;
+        int xHelicopter = (helicopter.getX()) - 80;
+        int yHelicopter = -helicopter.getY()  + 80;
+        int xCloud1 = (cloud1.getX()) - 80;
+        int yCloud1 = -cloud1.getY() + 80;
+        int xCloud2 = (cloud2.getX()) - 80;
+        int yCloud2 = -cloud2.getY() + 80;
+        getXY(x, y, xRocket, yRocket, xHelicopter, yHelicopter, xCloud1, yCloud1, xCloud2, yCloud2, panel);
+
+    }
+
     
     static void Explosive() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

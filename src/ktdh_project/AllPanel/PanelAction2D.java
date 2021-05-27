@@ -123,7 +123,7 @@ public class PanelAction2D extends javax.swing.JPanel {
                 }
                 if (i >= toaDoGiamSize) {
                     toaDoGiamSize = toaDoGiamSize + 10;
-                    rocket.changeSize(-1, -1);
+                    rocket.changeSize(-1, -2);
                 }
                 if(i%10==0){
                     cloud.move(-1, 0);  
@@ -137,6 +137,8 @@ public class PanelAction2D extends javax.swing.JPanel {
             Drawer.cloud(panel, cloud1);
             Drawer.helicopter(helicopter, panel);
             Drawer.sun(150, 10, 10, panel);
+            Drawer.showXY(panel, struck, rocket, helicopter, cloud, cloud1);
+            
             try {
 
                 TimeUnit.MILLISECONDS.sleep(100);
@@ -153,6 +155,7 @@ public class PanelAction2D extends javax.swing.JPanel {
             Drawer.Explosive(panel, explosive);
             Drawer.struck(struck, panel);
             Drawer.sun(150, 10, 10, panel);
+            Drawer.showXY(panel, struck, rocket, helicopter, cloud, cloud1);
 
             try {
 
@@ -175,6 +178,7 @@ public class PanelAction2D extends javax.swing.JPanel {
             Drawer.helicopter(helicopter, panel);
             Drawer.struck(struck, panel);
             Drawer.sun(150, 10, 10, panel);
+            Drawer.showXY(panel, struck, rocket, helicopter, cloud, cloud1);
             try {
 
                 TimeUnit.MILLISECONDS.sleep(100);
@@ -198,7 +202,7 @@ public class PanelAction2D extends javax.swing.JPanel {
     
     public void drawAction2D(){
         jPanelShow.removeAll();
-        jPanelShow.setSize(800,800);
+        jPanelShow.setSize(1000,1000);
         jPanelShow.setLayout(new BorderLayout());
         MyCanvas panel = new MyCanvas();
         jPanelShow.add(panel);
