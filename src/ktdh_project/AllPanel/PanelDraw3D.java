@@ -39,7 +39,7 @@ public class PanelDraw3D extends javax.swing.JPanel {
     
         public void setDraw3D(){
         jPanelShow.removeAll();
-        jPanelShow.setSize(800,800);
+        jPanelShow.setSize(1000,1000);
         jPanelShow.setLayout(new BorderLayout());
         jPanelShow.add(new MyCanvas3D());
         jPanelShow.validate();
@@ -315,9 +315,9 @@ public class PanelDraw3D extends javax.swing.JPanel {
         JTextField2.setVisible(true);
         jLabel3.setVisible(true);
         jTextField3.setVisible(true);
-        jLabel1.setText("X");
-        jLabel2.setText("Y");
-        jLabel3.setText("Z");
+        jLabel1.setText("CR");
+        jLabel2.setText("CD");
+        jLabel3.setText("CC");
     }
     
     public void setStart(){

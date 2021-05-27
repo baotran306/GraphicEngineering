@@ -67,4 +67,9 @@ public class Point3D extends Point2D{
         return res;
     }
     
+    public String Tostring ()
+    {
+        return String.format("(%s,%s,%s)",this.getX(),this.getY(),this.getZ());
+    }
+    
 }
