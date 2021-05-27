@@ -6,6 +6,8 @@
 package ktdh_project.AllPanel;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import ktdh_project.Class2D.LineMode;
@@ -30,7 +32,7 @@ public class PanelDraw2D extends javax.swing.JPanel {
     
     public void setDraw2D(){
         jPanelShow.removeAll();
-        jPanelShow.setSize(800,800);
+        jPanelShow.setSize(1000,1000);
         jPanelShow.setLayout(new BorderLayout());
         jPanelShow.add(new MyCanvas());
         jPanelShow.validate();
@@ -330,6 +332,14 @@ public class PanelDraw2D extends javax.swing.JPanel {
         MyLibrary.drawLine2D(x2, y1, x2, y2, LineMode.DEFAULT, jPanelShow);
         MyLibrary.drawLine2D(x2, y2, x1, y2, LineMode.DEFAULT, jPanelShow);
         MyLibrary.drawLine2D(x1, y2, x1 , y1, LineMode.DEFAULT, jPanelShow);
+        Graphics g = jPanelShow.getGraphics();
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(800, 0, 200, 800);
+        g.setColor(Color.BLACK);
+        g.drawString("A( " + (x1)  + ", " + (y1)  + ")", 850, 20);
+        g.drawString("B( " + (x2)  + ", " + (y1)  + ")", 850, 40);
+        g.drawString("C( " + (x2)  + ", " + (y2)  + ")", 850, 60);
+        g.drawString("D( " + (x1)  + ", " + (y2)  + ")", 850, 80);
     }
     
     public Point2D getStartPoint(){
