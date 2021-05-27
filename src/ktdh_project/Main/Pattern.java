@@ -23,7 +23,7 @@ public class Pattern extends javax.swing.JFrame {
     public Pattern() {
         initComponents();
 //        resetAll();
-        this.setSize(1000, 1000);
+        this.setSize(1200, 1000);
         
     }
 
