@@ -97,8 +97,8 @@ public class Draw3D {
         Point2D p2d6 = Point3D.CabinetConvert(point6);
         Point2D p2d7 = Point3D.CabinetConvert(point7);
         Point2D p2d8 = Point3D.CabinetConvert(point8);
-//        g.setColor(Color.LIGHT_GRAY);
-//        g.fillRect(800, 0, 200, 800);
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(800, 0, 200, 800);
         g.setColor(Color.BLACK);
         g.drawString(point1.Tostring(), 850, 20);
         g.drawString(point2.Tostring(), 850, 40);
@@ -162,6 +162,9 @@ public class Draw3D {
         MidDashEllipse(r, ry, 0, center2D, panel);
 
         Graphics g = panel.getGraphics();
+        g.setColor(Color.LIGHT_GRAY);
+        g.fillRect(800, 0, 200, 800);
+        g.setColor(Color.BLACK);
         
         g.drawString(center.Tostring(), 850, 20);
         g.drawString((new Point3D(center.getX(), center.getY(), center.getZ() + h)).Tostring(), 850, 40);

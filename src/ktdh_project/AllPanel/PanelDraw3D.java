@@ -374,7 +374,7 @@ public class PanelDraw3D extends javax.swing.JPanel {
     public void clear(){
         resetTextField();
         jPanelShow.removeAll();
-        jPanelShow.setSize(800,800);
+        jPanelShow.setSize(1000,1000);
         jPanelShow.setLayout(new BorderLayout());
         jPanelShow.add(new MyCanvas3D());
         jPanelShow.validate();
